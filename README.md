@@ -4,6 +4,9 @@
 
 > 本工程由逆向恢复的 `MSU2_MINI_DemoV1.6`（Python 3.11 + PyQt6）移植/重构而来，通信协议与原始 Demo 保持一致。原逆向文件 `MSU2_MINI_DemoV1.6_Output_recovered.py` 保留在仓库中作为协议参考。
 
+直接构造好的exe在`exe`目录下，复制到runtime_workdir可以直接运行
+某些缺失的头文件在`copymetoinclude`目录下，复制到include目录下即可。
+
 ---
 
 ## 功能特性
