@@ -25,9 +25,11 @@ add_compile_options(
 # 区分 Debug 构建与 Release 构建（选取合适的编译参数）
 if(CMAKE_BUILD_TYPE STREQUAL "Release")
     message(STATUS "[CMake] 构建类型: Release")
-    add_compile_options(-O2 -mwindows)
+    add_compile_options(-O2)
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -mwindows")
     add_definitions(-DNDEBUG)
     set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin/release")
+
 else()
     message(STATUS "[CMake] 构建类型: Debug（或未指定，默认按 Debug 处理）")
     add_compile_options(-g -O0 -Wall -Wextra)
