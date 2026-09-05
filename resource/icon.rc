@@ -1,0 +1,2 @@
+// Windows 资源脚本：为可执行文件嵌入图标
+IDI_ICON1 ICON "icon.ico"

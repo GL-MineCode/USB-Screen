@@ -1,0 +1,84 @@
+{
+    "version": 6,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 21,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "debug",
+            "displayName": "MinGW Debug (Ninja)",
+            "description": "使用 Ninja 生成器 + MinGW g++ 的调试构建（保留调试信息、关闭优化）",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+                "CMAKE_CXX_STANDARD": "20",
+                "CMAKE_CXX_STANDARD_REQUIRED": "ON",
+                "CMAKE_CXX_COMPILER": "g++.exe"
+            },
+            "environment": {
+                
+            }
+        },
+        {
+            "name": "release",
+            "displayName": "MinGW Release (Ninja)",
+            "description": "使用 Ninja 生成器 + MinGW g++ 的发布构建（开启优化、禁用断言）",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+                "CMAKE_CXX_STANDARD": "20",
+                "CMAKE_CXX_STANDARD_REQUIRED": "ON",
+                "CMAKE_CXX_COMPILER": "g++.exe"
+            },
+            "environment": {
+                
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "debug",
+            "configurePreset": "debug",
+            "displayName": "Debug 构建",
+            "description": "构建 Debug 版本，输出到 bin/debug/ECPmain.exe"
+        },
+        {
+            "name": "release",
+            "configurePreset": "release",
+            "displayName": "Release 构建",
+            "description": "构建 Release 版本，输出到 bin/release/ECPmain.exe"
+        }
+    ],
+    "testPresets": [
+        {
+            "name": "debug",
+            "configurePreset": "debug",
+            "displayName": "Debug 测试",
+            "description": "运行 Debug 版本的测试",
+            "output": {
+                "outputOnFailure": true
+            },
+            "execution": {
+                "noTestsAction": "error"
+            }
+        },
+        {
+            "name": "release",
+            "configurePreset": "release",
+            "displayName": "Release 测试",
+            "description": "运行 Release 版本的测试",
+            "output": {
+                "outputOnFailure": true
+            },
+            "execution": {
+                "noTestsAction": "error"
+            }
+        }
+    ]
+}
